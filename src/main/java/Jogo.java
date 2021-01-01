@@ -789,23 +789,23 @@ public class Jogo {
         t.setBackgroundColor(TextColor.ANSI.BLACK);
         t.putString(15, 5, "Manual - Comandos");
 
-        t.putString(5, 6, "Para movimentar uma peça é necessário escolher sua posição inicial e sua posição final");
+        t.putString(5, 6, "Para movimentar uma peça é necessário escolher sua posiçao inicial e sua posiçao final");
 
         t.putString(5, 7, "Use as");
         t.putString(13, 7, "SETAS", SGR.BOLD);
-        t.putString(19, 7, "para escolher a posição no tabuleiro.");
+        t.putString(19, 7, "para escolher a posiçao no tabuleiro.");
 
         t.putString(5, 8, "Aperte");
         t.putString(12, 8, "ENTER", SGR.BOLD);
-        t.putString(18, 8, "para selecionar a posição");
+        t.putString(18, 8, "para selecionar a posiçao");
 
         t.putString(5, 9, "Aperte");
         t.putString(12, 9, "TAB", SGR.BOLD);
-        t.putString(16, 9, "para deselecionar a posição");
+        t.putString(16, 9, "para deselecionar a posiçao");
 
         t.putString(5, 10, "Aperte");
         t.putString(12, 10, "ESC", SGR.BOLD);
-        t.putString(16, 10, "para sair do jogo (não salva o progresso!)");
+        t.putString(16, 10, "para sair do jogo (nao salva o progresso!)");
 
         t.putString(5, 11, "Aperte");
         t.putString(12, 11, "END", SGR.BOLD);

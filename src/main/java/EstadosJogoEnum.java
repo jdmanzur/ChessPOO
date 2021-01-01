@@ -23,7 +23,7 @@ public enum EstadosJogoEnum {
 
         switch (this.estado) {
             case 0:
-                return "INÍCIO";
+                return "INICIO";
             case 1:
                 return "EM ANDAMENTO";
             case 2:
