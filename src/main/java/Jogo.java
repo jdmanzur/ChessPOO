@@ -21,6 +21,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 import com.googlecode.lanterna.SGR;
@@ -155,9 +158,14 @@ public class Jogo {
         setTurno(TurnoEnum.J1);
 
         try {
+            Path path = Paths.get("saves/");
             File save = new File("saves/save");
-            if (!save.exists())
+
+            if (!save.exists()) {
+
+                Files.createDirectories(path);
                 save.createNewFile();
+            }
 
             FileOutputStream f = new FileOutputStream(save);
             ObjectOutputStream o = new ObjectOutputStream(f);
@@ -580,17 +588,15 @@ public class Jogo {
      */
     private void jogar() {
 
-
         boolean quit = false;
         while (!quit) {
 
-
             try {
-                
+
                 this.screen.clear();
                 help(51, 6);
                 renderMenu(25, 6, 5);
-    
+
                 status(51, 1);
                 renderMenu(getJogadorTurno().getNome().length() + 40, 3, 0);
                 desenharTabuleiro();
@@ -604,7 +610,6 @@ public class Jogo {
                 } else if (getJogadorTurno().isChequeMate()) {
                     setEstado(EstadosJogoEnum.CHEQUEMATE);
 
-                    
                     status(51, 1);
                     desenharTabuleiro();
                     passarTurno();
@@ -870,6 +875,7 @@ public class Jogo {
         try {
             File log = new File("saves/errorlog.txt");
             if (!log.exists())
+
                 log.createNewFile();
 
             // faz o log de erros
