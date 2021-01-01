@@ -1,6 +1,7 @@
 # ChessPOO
 jogo de xadrez usando POO em java
-#Instruções
+
+# Instruções
 Para executar o programa, deve ser baixado o zip que contém a seguinte estrutura de diretórios:
 |
 | --- /lib
