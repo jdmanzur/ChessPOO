@@ -55,7 +55,8 @@ public class Jogo {
             iniciarUI();
         } catch (IOException e) {
             System.out.println("Algo deu errado. Tente novamente :(");
-            return;
+            errorLog("ERRO EM INICIAR UI: " + e.getMessage());
+            System.exit(1);
         }
     }
 
@@ -67,15 +68,16 @@ public class Jogo {
 
         try {
             // tenta abrir o arquivo que salva os objetos
-            File save = new File("src/saves/save");
-            File log = new File("src/saves/log.txt");
-            char opt = ' ';
+            File save = new File("saves/save");
+            File log = new File("saves/log.txt");
+            File error = new File("saves/errorlog.txt");
 
-            FileInputStream fi = new FileInputStream(save);
-            ObjectInputStream oi = new ObjectInputStream(fi);
+            char opt = ' ';
 
             // pergunta se o jogador quer continuar o jogo
             if (save.exists()) {
+                FileInputStream fi = new FileInputStream(save);
+                ObjectInputStream oi = new ObjectInputStream(fi);
 
                 do {
                     System.out.println("Deseja continuar seu jogo?\nS-Sim\nN-Não");
@@ -99,6 +101,8 @@ public class Jogo {
 
                         if (log.exists())
                             log.delete();
+                        if (error.exists())
+                            error.delete();
 
                         novoJogo();
                     } else {
@@ -151,7 +155,7 @@ public class Jogo {
         setTurno(TurnoEnum.J1);
 
         try {
-            File save = new File("src/saves/save");
+            File save = new File("saves/save");
             if (!save.exists())
                 save.createNewFile();
 
@@ -185,7 +189,7 @@ public class Jogo {
     private void addLog(String s) {
 
         try {
-            File log = new File("src/saves/log.txt");
+            File log = new File("saves/log.txt");
             if (!log.exists())
                 log.createNewFile();
 
@@ -208,7 +212,7 @@ public class Jogo {
     private void salvarJogo() {
 
         try {
-            File save = new File("src/saves/save");
+            File save = new File("saves/save");
 
             if (!save.exists())
                 save.createNewFile();
@@ -396,8 +400,8 @@ public class Jogo {
      * @throws IOException
      */
     private void sair() throws IOException {
-        File save = new File("src/saves/save");
-        File log = new File("src/saves/log");
+        File save = new File("saves/save");
+        File log = new File("saves/log");
 
         if (save.exists())
             save.delete();
@@ -576,7 +580,6 @@ public class Jogo {
      */
     private void jogar() {
         try {
-
             help(51, 6);
             renderMenu(25, 6, 5);
 
@@ -627,9 +630,9 @@ public class Jogo {
      * @throws IOException
      */
     private void iniciarUI() throws IOException {
-        terminal = new DefaultTerminalFactory().createTerminal();
-        screen = new TerminalScreen(terminal);
-        screen.startScreen();
+        this.terminal = new DefaultTerminalFactory().createTerminal();
+        this.screen = new TerminalScreen(terminal);
+        this.screen.startScreen();
 
     }
 
@@ -864,7 +867,7 @@ public class Jogo {
      */
     private void errorLog(String s) {
         try {
-            File log = new File("src/saves/errorlog.txt");
+            File log = new File("saves/errorlog.txt");
             if (!log.exists())
                 log.createNewFile();
 
