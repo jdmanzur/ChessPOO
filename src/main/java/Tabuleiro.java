@@ -206,7 +206,7 @@ public class Tabuleiro implements Serializable {
             // se o movimento for válido para o peão, retorna verdadeiro
             // se está na diagonal e há uma peça da cor oposta ocupando a posicao final,
             // o peão pode se movimentar e comer a peça
-            if ((cDestino == cOrigem - 1 || cDestino == cOrigem + 1) && Math.abs(lDestino - lOrigem) == 1) {
+            if (((cDestino == cOrigem - 1) || (cDestino == cOrigem + 1)) && Math.abs(lDestino - lOrigem) == 1) {
                 if (destino.isOcupada() && destino.getPeca().getCor() != origem.getPeca().getCor())
                     return true;
             }
@@ -249,6 +249,9 @@ public class Tabuleiro implements Serializable {
 
         // checa se a posição de destino está ocupada
         if (destino.isOcupada()) {
+            if (origem.getPeca() instanceof Peao)
+                return false;
+
             if (origem.getPeca().getCor() == destino.getPeca().getCor()) {
                 // System.out.println("A posição está ocupada!");
                 return false;

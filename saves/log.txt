@@ -1,0 +1,58 @@
+CARLA moveu  ♙  de (7, A) para (5, A)
+JADE moveu  ♟  de (2, B) para (4, B)
+CARLA moveu  ♙  de (5, A) para (4, B)
+JADE moveu  ♟  de (2, E) para (4, E)
+CARLA moveu  ♘  de (8, G) para (6, F)
+JADE moveu  ♝  de (1, C) para (3, A)
+CARLA moveu  ♙  de (7, H) para (6, H)
+JADE moveu  ♚  de (1, E) para (2, E)
+CARLA moveu  ♙  de (4, B) para (3, A)
+JADE moveu  ♞  de (1, G) para (3, F)
+CARLA moveu  ♙  de (7, B) para (5, B)
+JADE moveu  ♞  de (1, B) para (3, C)
+CARLA moveu  ♙  de (7, D) para (5, D)
+JADE moveu  ♟  de (2, D) para (3, D)
+CARLA moveu  ♘  de (8, B) para (6, A)
+JOGADOR 1: CARLA (COR: BRANCO)
+JOGADOR 2: JADE (COR: PRETO)
+ESTADO: EM ANDAMENTO
+TURNO: JOGADOR 2
+╭┈┈A┈┈B┈┈C┈┈D┈┈E┈┈F┈┈G┈┈H┈┈╮
+
+╔══════════════════════════╗
+
+1  ♜ ███▒▒▒ ♛ ▒▒▒ ♝ ▒▒▒ ♜  ║
+2  ♟ ▒▒▒ ♟ ▒▒▒ ♚  ♟  ♟  ♟  ║
+3  ♙ ███ ♞  ♟ ▒▒▒ ♞ ▒▒▒███ ║
+4 ███▒▒▒███▒▒▒ ♟ ▒▒▒███▒▒▒ ║
+5 ▒▒▒ ♙ ▒▒▒ ♙ ▒▒▒███▒▒▒███ ║
+6  ♘ ▒▒▒███▒▒▒███ ♘ ███ ♙  ║
+7 ▒▒▒███ ♙ ███ ♙  ♙  ♙ ███ ║
+8  ♖ ▒▒▒ ♗  ♕  ♔  ♗ ███ ♖  ║
+╚══════════════════════════╝
+
+JADE moveu  ♟  de (2, A) para (3, A)
+JOGADOR 1: CARLA (COR: BRANCO)
+JOGADOR 2: JADE (COR: PRETO)
+ESTADO: EM ANDAMENTO
+TURNO: JOGADOR 1
+╭┈┈A┈┈B┈┈C┈┈D┈┈E┈┈F┈┈G┈┈H┈┈╮
+
+╔══════════════════════════╗
+
+1  ♜ ███▒▒▒ ♛ ▒▒▒ ♝ ▒▒▒ ♜  ║
+2 ███▒▒▒ ♟ ▒▒▒ ♚  ♟  ♟  ♟  ║
+3  ♟ ███ ♞  ♟ ▒▒▒ ♞ ▒▒▒███ ║
+4 ███▒▒▒███▒▒▒ ♟ ▒▒▒███▒▒▒ ║
+5 ▒▒▒ ♙ ▒▒▒ ♙ ▒▒▒███▒▒▒███ ║
+6  ♘ ▒▒▒███▒▒▒███ ♘ ███ ♙  ║
+7 ▒▒▒███ ♙ ███ ♙  ♙  ♙ ███ ║
+8  ♖ ▒▒▒ ♗  ♕  ♔  ♗ ███ ♖  ║
+╚══════════════════════════╝
+
+CARLA moveu  ♙  de (5, B) para (4, B)
+JADE moveu  ♟  de (3, A) para (4, B)
+CARLA moveu  ♙  de (7, C) para (5, C)
+JADE moveu  ♞  de (3, C) para (1, B)
+CARLA moveu  ♙  de (7, E) para (5, E)
+JADE moveu  ♟  de (4, E) para (5, E)

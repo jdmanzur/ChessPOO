@@ -579,19 +579,18 @@ public class Jogo {
      * com o usuário e mostrando o tabuleiro
      */
     private void jogar() {
-        try {
-            help(51, 6);
-            renderMenu(25, 6, 5);
 
-        } catch (IOException e) {
-            errorLog("ERRO EM JOGAR(): " + e.getMessage());
-            return;
-        }
 
         boolean quit = false;
         while (!quit) {
 
+
             try {
+                
+                this.screen.clear();
+                help(51, 6);
+                renderMenu(25, 6, 5);
+    
                 status(51, 1);
                 renderMenu(getJogadorTurno().getNome().length() + 40, 3, 0);
                 desenharTabuleiro();
@@ -604,6 +603,8 @@ public class Jogo {
                     setEstado(EstadosJogoEnum.CHEQUE);
                 } else if (getJogadorTurno().isChequeMate()) {
                     setEstado(EstadosJogoEnum.CHEQUEMATE);
+
+                    
                     status(51, 1);
                     desenharTabuleiro();
                     passarTurno();
