@@ -1,0 +1,5 @@
+{
+    "java.home": "/usr/lib/jvm/jdk-14.0.2+12",
+    "maven.view": "hierarchical",
+    "java.project.referencedLibraries": [ "lib/*.jar"]
+}

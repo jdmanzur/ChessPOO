@@ -1,0 +1,75 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch UI",
+            "request": "launch",
+            "mainClass": "main.java.UI",
+            "projectName": "ChessPOO_6596ca1d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Gerenciador",
+            "request": "launch",
+            "mainClass": "main.java.Gerenciador",
+            "projectName": "ChessPOO_6596ca1d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Teste",
+            "request": "launch",
+            "mainClass": "main.java.Teste",
+            "projectName": "ChessPOO_6596ca1d"
+        },
+        {
+            "name": "Java",
+            "type": "java",
+            "request": "launch",
+            "stopOnEntry": true,
+            "jdkPath": "${env:JAVA_HOME}/bin",
+            "cwd": "${fileDirname}",
+            "startupClass": "${fileBasenameNoExtension}",
+            "classpath": [
+                ".",
+                "${fileDirname}"
+            ]
+        },
+        {
+            "name": "Java Console App",
+            "type": "java",
+            "request": "launch",
+            "stopOnEntry": true,
+            "jdkPath": "${env:JAVA_HOME}/bin",
+            "cwd": "${fileDirname}",
+            "startupClass": "${fileBasenameNoExtension}",
+            "classpath": [
+                ".",
+                "${fileDirname}"
+            ],
+            "externalConsole": true
+        },
+        {
+            "startupClass": "${fileBasename}",
+            "cwd": "${fileDirname}",
+            "jdkPath": "${env:JAVA_HOME}/bin",
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "startupClass": "${fileBasename}",
+            "cwd": "${fileDirname}",
+            "jdkPath": "${env:JAVA_HOME}/bin",
+            "type": "java",
+            "name": "Debug (Launch)-Teste<ChessPOO_6596ca1d>",
+            "request": "launch",
+            "mainClass": "Teste",
+            "projectName": "ChessPOO_6596ca1d"
+        }
+    ]
+}
