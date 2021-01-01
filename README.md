@@ -32,6 +32,9 @@ ChessPOO
 ```
 
 Em um terminal linux, basta digitar a seguinte linha de comando, no diretório em que está o .jar:
+```
 java -jar ChessPOO.jar
+```
+
 A versão do Java instalado na máquina deve ser no mínimo a 11.0.8 , sendo de preferência a mais recente (15.0.1). 
 
