@@ -526,6 +526,7 @@ public class Jogo {
                         if (sel == 1) {
                             sel = 0;
                             selecionarPosicao(((int) colunaOrigem) - 65, linhaOrigem - 1);
+                            moverPosicao(atual_col, atual_lin, 0, 0);
                             atual_lin = 0;
                             atual_col = 0;
                         }
@@ -605,19 +606,33 @@ public class Jogo {
                 quit = lerEntrada();
                 passarTurno();
 
-                if (tabuleiro.isEmCheque(getJogadorTurno().getCor())) {
+                if (tabuleiro.isEmCheque(CorEnum.PRETO) || tabuleiro.isEmCheque(CorEnum.BRANCO)) {
                     setEstado(EstadosJogoEnum.CHEQUE);
-                } else if (getJogadorTurno().isChequeMate()) {
-                    setEstado(EstadosJogoEnum.CHEQUEMATE);
 
-                    status(51, 1);
-                    desenharTabuleiro();
-                    passarTurno();
+                    boolean branco = tabuleiro.isChequeMate(CorEnum.BRANCO);
+                    boolean preto = tabuleiro.isChequeMate(CorEnum.PRETO);
 
-                    imprimirVencedor(getJogadorTurno().getNome());
-                    screen.readInput();
-                    sair();
-                    return;
+                    if (preto || branco) {
+                        setEstado(EstadosJogoEnum.CHEQUEMATE);
+
+                        status(51, 1);
+                        desenharTabuleiro();
+                        passarTurno();
+                        log("CHEQUE-MATE! Aperte qualquer tecla para encerrar.", TextColor.ANSI.MAGENTA);
+                        screen.readInput();
+
+                        // JOGADOR 1 É O BRANCO, PRETO EM CHEQUE MATE
+                        if (preto)
+                            imprimirVencedor(jogador1.getNome());
+                        // JOGADOR 2 É O PRETO, BRANCO EM CHEQUE MATE
+                        if (branco)
+                            imprimirVencedor(jogador2.getNome());
+
+                        screen.readInput();
+                        sair();
+                        return;
+                    }
+
                 } else {
                     setEstado(EstadosJogoEnum.EM_ANDAMENTO);
                 }

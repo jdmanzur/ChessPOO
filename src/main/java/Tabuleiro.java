@@ -206,9 +206,14 @@ public class Tabuleiro implements Serializable {
             // se o movimento for válido para o peão, retorna verdadeiro
             // se está na diagonal e há uma peça da cor oposta ocupando a posicao final,
             // o peão pode se movimentar e comer a peça
-            if (((cDestino == cOrigem - 1) || (cDestino == cOrigem + 1)) && Math.abs(lDestino - lOrigem) == 1) {
-                if (destino.isOcupada() && destino.getPeca().getCor() != origem.getPeca().getCor())
-                    return true;
+            if (((cDestino == cOrigem - 1) || (cDestino == cOrigem + 1))) {
+                if ((origem.getPeca().getCor() == CorEnum.PRETO && lDestino - lOrigem == 1)
+                        || (origem.getPeca().getCor() == CorEnum.BRANCO && lOrigem - lDestino == 1)) {
+                    // só anda e come pra frente
+
+                    if (destino.isOcupada() && destino.getPeca().getCor() != origem.getPeca().getCor())
+                        return true;
+                }
             }
 
         }
@@ -457,4 +462,48 @@ public class Tabuleiro implements Serializable {
 
     }
 
+    /**
+     * Checa todas as condições possíveis de cheque mate para um rei, baseado em sua
+     * cor
+     */
+    public boolean isChequeMate(CorEnum cor) {
+        boolean b = true;
+        // itera pelo tabuleiro
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                // para todas as peças da mesma cor do rei em cheque,
+                // verificar se cada um dos movimentos validos para elas tira o rei de cheque.
+                if (tabuleiroPosicao[i][j].isOcupada() && tabuleiroPosicao[i][j].getPeca().getCor() == cor) {
+                    for (int k = 0; k < 8; k++) {
+                        for (int l = 0; l < 8; l++) {
+
+                            // problema : mover a peca pode comer uma peca no caminho, como evitar?
+                            // solucao: identificar se a posicao de destino possui uma peça de cor oposta,
+                            // realizar o movimento, e trazer as peças para a posição original depois
+
+                            Peca p = tabuleiroPosicao[k][l].getPeca();
+
+                            if (moverPeca(i + 1, ((char) (j + 'A')), k + 1, ((char) (l + 'A')))) {
+
+                                if (!isEmCheque(cor))
+                                    b = false;
+
+                                // mover peça de volta a posicao original
+                                tabuleiroPosicao[i][j].setPeca(tabuleiroPosicao[k][l].getPeca());
+                                if (p != null)
+                                    p.setCapturada(false);
+                                tabuleiroPosicao[k][l].setPeca(p);
+
+                                if (!b)
+                                    return b;
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
 }

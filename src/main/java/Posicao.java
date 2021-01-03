@@ -36,7 +36,10 @@ public class Posicao implements Serializable {
      */
     public void setPeca(Peca p) {
         this.peca = p;
-        this.setOcupada(true);
+        if (p == null)
+            this.setOcupada(false);
+        else
+            this.setOcupada(true);
     }
 
     /**

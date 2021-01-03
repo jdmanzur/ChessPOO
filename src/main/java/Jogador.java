@@ -51,15 +51,4 @@ public class Jogador implements Serializable {
         return nome;
     }
 
-    /**
-     * retorna se o jogador está em cheque mate
-     * 
-     */
-    public boolean isChequeMate() {
-        for (int i = 0; i < 16; i++) {
-            if (pecas[i] instanceof Rei && pecas[i].isCapturada())
-                return true;
-        }
-        return false;
-    }
 }
