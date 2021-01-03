@@ -51,4 +51,11 @@ public class Jogador implements Serializable {
         return nome;
     }
 
+    public boolean isReiCapturado() {
+        for (int i = 0; i < 16; i++) {
+            if (this.pecas[i] instanceof Rei)
+                return pecas[i].isCapturada();
+        }
+        return false;
+    }
 }

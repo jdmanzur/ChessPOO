@@ -604,20 +604,19 @@ public class Jogo {
 
                 // jogar ou sair
                 quit = lerEntrada();
-                passarTurno();
 
                 if (tabuleiro.isEmCheque(CorEnum.PRETO) || tabuleiro.isEmCheque(CorEnum.BRANCO)) {
                     setEstado(EstadosJogoEnum.CHEQUE);
 
-                    boolean branco = tabuleiro.isChequeMate(CorEnum.BRANCO);
-                    boolean preto = tabuleiro.isChequeMate(CorEnum.PRETO);
+                    boolean branco = tabuleiro.isChequeMate(CorEnum.BRANCO) || jogador1.isReiCapturado();
+                    boolean preto = tabuleiro.isChequeMate(CorEnum.PRETO) || jogador2.isReiCapturado();
 
                     if (preto || branco) {
                         setEstado(EstadosJogoEnum.CHEQUEMATE);
 
                         status(51, 1);
                         desenharTabuleiro();
-                        passarTurno();
+
                         log("CHEQUE-MATE! Aperte qualquer tecla para encerrar.", TextColor.ANSI.MAGENTA);
                         screen.readInput();
 
@@ -636,6 +635,8 @@ public class Jogo {
                 } else {
                     setEstado(EstadosJogoEnum.EM_ANDAMENTO);
                 }
+
+                passarTurno();
 
             } catch (IOException e) {
                 errorLog("ERRO EM JOGAR(): " + e.getMessage());
